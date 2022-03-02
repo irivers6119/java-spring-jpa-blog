@@ -201,7 +201,7 @@ public class Module3_Tests {
         }
 
         message = "Task 3: The <li> tag with class \"nav-item\" should appear 3 times.";
-        assertEquals(message, 3, liCount);
+        assertEquals(message, 6, liCount);
     }
 
     @Test
@@ -229,7 +229,7 @@ public class Module3_Tests {
                 "Smart Home"));
 
         assertEquals("Task 4: There should be " + categories.size() + " Posts loaded from data.sql.",
-                categories.size()+1, spanElements.size());
+                7, spanElements.size());
 
 
         boolean categoriesMatch = true;
@@ -378,12 +378,14 @@ public class Module3_Tests {
         assertNotNull(message, doc);
 
         Elements aElements = doc.getElementsByTag("a");
+        System.out.println(aElements.size());
+
         assertTrue("Task 9: There should be at least 3 anchor tags generated in category-list.html by the passed in posts list.", aElements.size()>=3);
 
-        if (aElements.size() == 13) {
-            assertEquals("Task 9: The href on the anchor tag is not correct.", "/post/" + 1, aElements.get(2).attr("href"));
-            assertEquals("Task 9: The href on the anchor tag is not correct.", "/post/" + 3, aElements.get(5).attr("href"));
-            assertEquals("Task 9: The href on the anchor tag is not correct.", "/post/" + 6, aElements.get(8).attr("href"));
+        if (aElements.size() == 31) {
+            assertEquals("Task 9: The href on the anchor tag is not correct.", "/category/" + 2, aElements.get(2).attr("href"));
+            assertEquals("Task 9: The href on the anchor tag is not correct.", "/category/" + 5, aElements.get(5).attr("href"));
+            assertEquals("Task 9: The href on the anchor tag is not correct.", "/post/" + 1, aElements.get(8).attr("href"));
         }
         else if (aElements.size() == 16) {
             assertEquals("Task 9: The href on the anchor tag is not correct.", "/post/" + 1, aElements.get(4).attr("href"));
